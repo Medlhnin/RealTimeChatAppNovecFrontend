@@ -1,15 +1,23 @@
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../Services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import ValidateForm from '../../helpers/validationform';
 import { NgToastService } from 'ng-angular-popup';
 import { UserStoreService } from '../../Services/user-store.service';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-authentification',
-  templateUrl: './authentification.component.html',
-  styleUrls: ['./authentification.component.css'],
+    selector: 'app-authentification',
+    templateUrl: './authentification.component.html',
+    styleUrls: ['./authentification.component.css'],
+    standalone: true,
+    imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        NgIf,
+        RouterLink,
+    ],
 })
 export class AuthentificationComponent implements OnInit {
   public loginForm!: FormGroup;

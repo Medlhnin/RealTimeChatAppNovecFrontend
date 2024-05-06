@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateService } from 'src/app/Services/RoomManag/create.service';
 import { AuthService } from 'src/app/Services/auth.service';
 import { ApiService } from 'src/app/Services/api.service';
 import { Router } from '@angular/router';
 import { SharedRoomService } from 'src/app/Services/shared-room.service';
+import { NgFor } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'app-chat-rooms',
-  templateUrl: './chat-rooms.component.html',
-  styleUrls: ['./chat-rooms.component.css']
+    selector: 'app-chat-rooms',
+    templateUrl: './chat-rooms.component.html',
+    styleUrls: ['./chat-rooms.component.css'],
+    standalone: true,
+    imports: [MatCardModule, MatButtonModule, FormsModule, ReactiveFormsModule, NgFor]
 })
 export class ChatRoomsComponent implements OnInit{
   roomToBeCreated: FormGroup ;

@@ -19,33 +19,31 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AuthentificationComponent,
-    SignupComponent,
-    DashboardComponent,
-    ChatRoomsComponent,
-    ChatComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    NgToastModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    MatIconModule
-  ],
-  providers: [{
-    provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptor,
-    multi:true
-  }],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+        NgToastModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatButtonModule,
+        MatInputModule,
+        MatIconModule,
+        AuthentificationComponent,
+        SignupComponent,
+        DashboardComponent,
+        ChatRoomsComponent,
+        ChatComponent
+    ],
+    providers: [{
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
