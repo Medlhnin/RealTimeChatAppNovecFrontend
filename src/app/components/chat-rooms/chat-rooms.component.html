@@ -1,0 +1,69 @@
+<div class="container">
+    <div>
+        <!--
+        <div>
+            <h3> Hi {{userName}}</h3>
+        </div>
+        <div>
+            <button class="btn btn-success"  (click)="OnClickOnJoin()"> Join </button>
+        </div>
+        <br>
+        <div>
+            <button class="btn btn-success" (click)="OnClickOnCreate()">Create</button>
+        </div> -->
+        <mat-card class=" card1 ">
+            <mat-card-header class="title"> Novec Messenger | {{userName}} </mat-card-header>
+            <mat-card-actions>
+    
+                <button mat-raised-button (click)="OnClickOnJoin()" class="join-btn"> Join </button>
+    
+                <button mat-raised-button (click)="OnClickOnCreate()" class="create-btn">Create</button>
+    
+            </mat-card-actions>
+         </mat-card>
+    </div>    
+     <mat-card class="card2">
+        <div id="alertModal" class="modal">
+            <div class="modal-content">
+                <form [formGroup]="roomToBeCreated">
+                    <span class="close" (click)="OnCloseOnCreate()">&times;</span>
+                    <h2>Create a room</h2>
+                    <input type="text" id="newThingInput" placeholder="roomName" formControlName="roomName">
+                    <input type="number" formControlName="adminId" style="display: none;" [(ngModel)]="userId">
+                    <button class="btn btn-outline-success" (click)="OnCreate()">Create</button>
+                </form>
+            </div>
+        </div>
+        <div id="alertModal2" class="modal">
+            <div class="modal-content">
+                <form [formGroup]="roomToBeJoined">
+                    <span class="close" (click)="OnCloseOnJoin()">&times;</span>
+                    <h2>Join a room</h2>
+                    <input type="number" placeholder="roomId" formControlName="roomId">
+                    <input type="number" formControlName="userId" style="display: none;">
+                    <button class="btn btn-outline-success" (click)="OnJoin()">Join</button>
+                </form>
+            </div>
+        </div>
+  
+    <div class="element-container">
+        <div *ngFor="let room of rooms" class="element">
+            <div class="card" style="width: 18rem;">
+                <img src="../../../assets/room.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h3 class="card-title">{{room.name}}</h3>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a class="btn btn-primary" (click)="clickEnter(room)">Enter </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-card>
+
+    <div>
+        <div>
+            <button mat-raised-button color="warn" class="signe-out-btn" (click)="SignOut()">SignOut</button>
+        </div>
+    </div>
+    
+

@@ -1,0 +1,37 @@
+
+<section class="msger">
+    <header class="msger-header">
+      <div class="msger-header-title">
+        <i class="fas fa-comment-alt"></i> SimpleChat
+      </div>
+      <div class="msger-header-options">
+        <button routerLink="/Rooms" class="btn">
+          <mat-icon>arrow_left_alt</mat-icon>
+        </button>
+      </div>
+    </header>
+  
+    <main class="msger-chat">
+      <div class="msg left-msg" *ngFor="let message of messages">
+        <div
+         class="msg-img"
+         style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+        ></div>
+  
+        <div class="msg-bubble">
+          <div class="msg-info">
+            <div class="msg-info-name">{{message.sender}}</div>
+            <div class="msg-info-time">{{message.dateCreates}}</div>
+          </div>
+          <div class="msg-text">
+            {{message.content}}
+          </div>
+        </div>
+      </div>
+    </main>
+  
+    <form class="msger-inputarea" [formGroup]="myForm" >
+      <input type="text" class="msger-input" placeholder="Enter your message..." formControlName="content">
+      <button  type="submit" class="msger-send-btn" (click)="SendMessage(myForm.value)">Send</button>
+    </form>
+  </section>
